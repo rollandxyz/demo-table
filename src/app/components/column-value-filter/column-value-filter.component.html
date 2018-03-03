@@ -1,0 +1,21 @@
+<div class="container" [class.solution-dark-theme]="isDarkThemeActive">
+  <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign="space-around stretch" fxFill>
+    <mat-toolbar color="primary">
+      <button mat-button (click)="onApplyClicked(valueList)">Apply</button>
+      <button mat-button (click)="onCancelClicked()">Cancel</button>
+    </mat-toolbar>
+    <mat-card fxFlex fxLayoutAlign="start center" fxLayout="column" class="solution" [style.paddingTop.px]="'10'" (click)="$event.stopPropagation()">
+      <mat-card-header>
+        <mat-checkbox #selectAllCheckbox (change)="onSelectAllChanged(valueList, selectAllCheckbox)">[Select All]</mat-checkbox>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content [style.overflow]="'auto'">
+        <mat-selection-list #valueList (selectionChange)="onSelectionChange(valueList, selectAllCheckbox)">
+          <mat-list-option [checkboxPosition]='before' *ngFor="let value of columnValues" [value]="value">
+            {{value}}
+          </mat-list-option>
+        </mat-selection-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

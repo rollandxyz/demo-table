@@ -1,4 +1,10 @@
 # DemoTable
+https://medium.com/codingthesmartway-com-blog/angular-material-part-4-data-table-23874582f23a
+
+https://blog.angular-university.io/angular-material-data-table/
+npm install --save @angular/material @angular/cdk
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.1.
 
@@ -17,6 +23,10 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+
+ag-Grid Angular
+
 
 ## Running end-to-end tests
 
