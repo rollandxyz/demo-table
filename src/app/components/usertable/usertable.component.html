@@ -2,15 +2,21 @@
   <mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="name">
       <mat-header-cell *matHeaderCellDef>
-        <button mat-button [matMenuTriggerFor]="menu">Name</button>
+        <button mat-button [matMenuTriggerFor]="menu" (click) = "populateUniqueValues('name')">Name</button>
         <mat-menu #menu="matMenu">
-          <app-column-value-filter (columnValueFilterChange)="onColumnValueFilterChange($event)"></app-column-value-filter>
+          <app-column-value-filter [columnValues] = "uniqueValues" (columnValueFilterChange)="onColumnValueFilterChange($event)"></app-column-value-filter>
         </mat-menu>
       </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.name}} </mat-cell>
     </ng-container>
+
     <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef> E-Mail </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>         
+        <button mat-button [matMenuTriggerFor]="menu" (click) = "populateUniqueValues('email')">E-Mail </button>
+        <mat-menu #menu="matMenu">
+          <app-column-value-filter [columnValues] = "uniqueValues" (columnValueFilterChange)="onColumnValueFilterChange($event)"></app-column-value-filter>
+        </mat-menu>
+      </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.email}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="phone">
@@ -18,7 +24,13 @@
       <mat-cell *matCellDef="let user"> {{user.phone}} </mat-cell>
     </ng-container>
     <ng-container matColumnDef="company">
-      <mat-header-cell *matHeaderCellDef> Company </mat-header-cell>
+      <mat-header-cell *matHeaderCellDef>
+          
+         <button mat-button [matMenuTriggerFor]="menu" (click) = "populateUniqueValues('company')"> Company </button>
+         <mat-menu #menu="matMenu">
+           <app-column-value-filter [columnValues] = "uniqueValues" (columnValueFilterChange)="onColumnValueFilterChange($event)"></app-column-value-filter>
+         </mat-menu>
+      </mat-header-cell>
       <mat-cell *matCellDef="let user"> {{user.company.name}} </mat-cell>
     </ng-container>
 
